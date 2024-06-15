@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SkiVent</string>
+    <string name="menu_title_bottom_nav_home">Home</string>
+    <string name="menu_title_bottom_nav_profile">Profile</string>
+    <string name="menu_title_bottom_nav_camera">Camera</string>
+    <string name="toolbar_profile">Hi, Dear</string>
+    <string name="toolbar_camera">Scan your skin!</string>
+    <string name="toolbar_result">Result</string>
+    <string name="toolbar_setting">Setting</string>
+    <string name="button_text_ok">OK</string>
+    <string name="const_lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
