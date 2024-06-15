@@ -14,6 +14,7 @@ import com.dicoding.skivent.databinding.ActivityMainBinding
 import com.dicoding.skivent.ui.dashboard.home.HomeFragment
 import com.dicoding.skivent.ui.dashboard.profile.ProfileFragment
 import com.dicoding.skivent.ui.dashboard.scan.CameraActivity
+import com.dicoding.skivent.ui.dashboard.scan.ScanResultActivity
 import com.dicoding.skivent.utils.Constanta
 import com.dicoding.skivent.utils.Helper
 import java.util.Timer
@@ -63,7 +64,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.navigation_profile -> {
-                    switchFragment(fragmentProfile)
+//                    switchFragment(fragmentProfile)
+                    val intent = Intent(this, ScanResultActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false

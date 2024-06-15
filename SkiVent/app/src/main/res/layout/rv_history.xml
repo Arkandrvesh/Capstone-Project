@@ -62,7 +62,7 @@
             android:layout_height="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/divider"
-            tools:src="@drawable/ic_accuracy" />
+            android:src="@drawable/ic_accuracy" />
 
         <TextView
             android:id="@+id/tv_last_on"
