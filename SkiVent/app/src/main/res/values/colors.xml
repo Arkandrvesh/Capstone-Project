@@ -6,4 +6,5 @@
     <color name="inactive">#8696BB</color>
     <color name="danger">#FF6363</color>
     <color name="safe">#63FF73</color>
+    <color name="light_gray">#EAEAEA</color>
 </resources>

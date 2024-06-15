@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentProfile = ProfileFragment()
         fragmentHome = HomeFragment()
+        switchFragment(fragmentHome!!)
 
         startResult =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -76,7 +77,6 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<String>,
         grantResults: IntArray
     ) {
-
         when (requestCode) {
             Constanta.CAMERA_PERMISSION_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_DENIED) {
