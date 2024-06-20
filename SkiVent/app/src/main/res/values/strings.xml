@@ -45,6 +45,10 @@
     <string name="passwordNone">Kata Sandi tidak boleh kosong</string>
     <string name="passwordConfirmNone">Konfirmasi Kata Sandi tidak boleh kosong</string>
 
+    <string name="skivent_splash">Ingin merawat kulit Anda? Anda Sudah tepat berada disini!</string>
+    <string name="brand" translatable="false">SkiVent</string>
+    <string name="imageSplashDesc">Ini adalah logo di splashscreen</string>
+
     <string name="const_lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -10,4 +10,9 @@
     <color name="yellow">#FFFFD363</color>
     <color name="blue">#0000FF</color>
     <color name="register_click">#4E31AA</color>
+    <color name="grey">#393646</color>
+    <color name="light_purple">#C7B8EA</color>
+    <color name="pink">#FFC5C5</color>
+    <color name="orange">#FFA07A</color>
+
 </resources>
