@@ -13,4 +13,4 @@ Skivent is an innovative application designed to help users detect skin diseases
 
 
 ### CC
-![tree](https://drive.google.com/file/d/1m8UygpFQ5KpLf6QvJIoiwVcdlP-QM9o3/view?usp=drivesdk)
+![diagram](https://github.com/Arkandrvesh/Capstone-Project/blob/main/asset/Capstone-Diagram.jpg)
