@@ -2,9 +2,12 @@ package com.dicoding.skivent.ui.dashboard.scan
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.util.Size
 import android.view.Gravity
 import androidx.activity.result.ActivityResultLauncher
@@ -33,6 +36,9 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
         initGallery()
         binding.let {
             it.btnShutter.setOnClickListener {
@@ -59,8 +65,8 @@ class CameraActivity : AppCompatActivity() {
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
             val imageAnalysis = ImageAnalysis.Builder()
-                /* compress image to match API requirements -> max file 1MB to be uploaded */
                 .setTargetResolution(Size(480, 720))
+                .setTargetRotation(binding.viewFinder.display.rotation)
                 .build()
             val preview = Preview.Builder()
                 .build()
@@ -107,13 +113,21 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
-
+    private val galleryLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val selectedImg: Uri = result.data?.data as Uri
+                startCrop(selectedImg)
+            }
+        }
     private fun startGallery() {
-        val intent = Intent()
-        intent.action = Intent.ACTION_GET_CONTENT
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, getString(R.string.UI_info_intent_image))
-        openGalleryLauncher.launch(chooser)
+//        val intent = Intent()
+//        intent.action = Intent.ACTION_GET_CONTENT
+//        intent.type = "image/*"
+//        val chooser = Intent.createChooser(intent, getString(R.string.UI_info_intent_image))
+//        openGalleryLauncher.launch(chooser)
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        galleryLauncher.launch(intent)
     }
 
     private fun takePhoto() {
@@ -133,29 +147,37 @@ class CameraActivity : AppCompatActivity() {
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val sourceUri = Uri.fromFile(photoFile)
-                    val destinationUri = Uri.fromFile(File(cacheDir, "croppedImage.jpg"))
-
-                    val uCrop = UCrop.of(sourceUri, destinationUri)
-                        .withAspectRatio(2f, 3f) // Atur aspek rasio gambar yang di-crop
-                        .withMaxResultSize(1000, 1000) // Atur ukuran maksimum gambar yang di-crop
-
-                    val cropIntent = uCrop.getIntent(this@CameraActivity)
-                    cropLauncher.launch(cropIntent)
+                    startCrop(sourceUri)
                 }
             }
         )
     }
 
+    private fun startCrop(sourceUri: Uri) {
+        val destinationUri = Uri.fromFile(File(cacheDir, "croppedImage.jpg"))
+        val uCrop = UCrop.of(sourceUri, destinationUri)
+            .withOptions(UCrop.Options().apply {
+                setCompressionQuality(100) // Atur kualitas gambar yang di-crop
+            })
+            .withAspectRatio(2f, 3f) // Atur aspek rasio gambar yang di-crop
+            .withMaxResultSize(480, 720) // Atur ukuran maksimum gambar yang di-crop
+        val cropIntent = uCrop.getIntent(this@CameraActivity)
+        cropLauncher.launch(cropIntent)
+    }
+
     private val cropLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val croppedUri = UCrop.getOutput(result.data!!)
-            // Lakukan sesuatu dengan gambar yang telah di-crop
-            // Misalnya, kirim gambar yang telah di-crop melalui intent
-            val intent = Intent(this, ScanResultActivity::class.java)
-            intent.putExtra(ScanResultActivity.EXTRA_PHOTO_RESULT, croppedUri)
-            // ...
-            startActivity(intent)
-            finish()
+            if (croppedUri != null) {
+                val intent = Intent(this@CameraActivity, ScanResultActivity::class.java)
+                intent.putExtra(ScanResultActivity.EXTRA_PHOTO_RESULT, croppedUri.toString())
+                intent.putExtra(ScanResultActivity.EXTRA_CAMERA_MODE, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
+                intent.flags = Intent.FLAG_ACTIVITY_FORWARD_RESULT
+                startActivity(intent)
+                this@CameraActivity.finish()
+            } else {
+                Log.e("CameraActivity", "Cropped image URI is null")
+            }
         } else if (result.resultCode == UCrop.RESULT_ERROR) {
             val error = UCrop.getError(result.data!!)
             // Tangani error (jika ada)
