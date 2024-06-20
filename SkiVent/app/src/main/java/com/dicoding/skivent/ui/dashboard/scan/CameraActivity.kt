@@ -1,5 +1,6 @@
 package com.dicoding.skivent.ui.dashboard.scan
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,9 @@ import androidx.core.content.ContextCompat
 import com.dicoding.skivent.R
 import com.dicoding.skivent.databinding.ActivityCameraBinding
 import com.dicoding.skivent.utils.Helper
+import java.io.File
 import java.lang.StringBuilder
+import com.yalantis.ucrop.UCrop
 
 class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
@@ -129,17 +132,33 @@ class CameraActivity : AppCompatActivity() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val intent = Intent(this@CameraActivity, ScanResultActivity::class.java)
-                    intent.putExtra(ScanResultActivity.EXTRA_PHOTO_RESULT, photoFile)
-                    intent.putExtra(
-                        ScanResultActivity.EXTRA_CAMERA_MODE,
-                        cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
-                    )
-                    intent.flags = Intent.FLAG_ACTIVITY_FORWARD_RESULT
-                    startActivity(intent)
-                    this@CameraActivity.finish()
+                    val sourceUri = Uri.fromFile(photoFile)
+                    val destinationUri = Uri.fromFile(File(cacheDir, "croppedImage.jpg"))
+
+                    val uCrop = UCrop.of(sourceUri, destinationUri)
+                        .withAspectRatio(2f, 3f) // Atur aspek rasio gambar yang di-crop
+                        .withMaxResultSize(1000, 1000) // Atur ukuran maksimum gambar yang di-crop
+
+                    val cropIntent = uCrop.getIntent(this@CameraActivity)
+                    cropLauncher.launch(cropIntent)
                 }
             }
         )
+    }
+
+    private val cropLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val croppedUri = UCrop.getOutput(result.data!!)
+            // Lakukan sesuatu dengan gambar yang telah di-crop
+            // Misalnya, kirim gambar yang telah di-crop melalui intent
+            val intent = Intent(this, ScanResultActivity::class.java)
+            intent.putExtra(ScanResultActivity.EXTRA_PHOTO_RESULT, croppedUri)
+            // ...
+            startActivity(intent)
+            finish()
+        } else if (result.resultCode == UCrop.RESULT_ERROR) {
+            val error = UCrop.getError(result.data!!)
+            // Tangani error (jika ada)
+        }
     }
 }
