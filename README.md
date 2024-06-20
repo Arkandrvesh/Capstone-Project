@@ -10,3 +10,7 @@ Skivent is an innovative application designed to help users detect skin diseases
 - [Skivent MD](https://github.com/Arkandrvesh/Capstone-Project/tree/MD) - Android Application
 - [Skivent API](https://github.com/Arkandrvesh/Capstone-Project/tree/CC) - REST API
 - [Skivent Model](https://github.com/Arkandrvesh/Capstone-Project/tree/main/ML/Skivent/model) - Model
+
+
+### CC
+![tree](https://drive.google.com/file/d/1m8UygpFQ5KpLf6QvJIoiwVcdlP-QM9o3/view?usp=drivesdk)
