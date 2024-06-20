@@ -18,6 +18,11 @@
         android:theme="@style/Theme.SkiVent"
         tools:targetApi="31">
         <activity
+            android:name=".ui.authentication.Login"
+            android:exported="false" />
+        <activity android:name=".ui.authentication.Registration"
+            android:exported="false" />
+        <activity
             android:name=".ui.dashboard.scan.ScanResultActivity"
             android:exported="false" />
         <activity
