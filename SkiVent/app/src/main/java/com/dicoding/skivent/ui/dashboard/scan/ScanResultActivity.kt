@@ -15,19 +15,6 @@ class ScanResultActivity : AppCompatActivity() {
         binding = ActivityScanResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Add logging to check if views are initialized
-        Log.d("ScanResultActivity", "linearLayoutDesc: ${binding.linearLayoutDesc}")
-        Log.d("ScanResultActivity", "cardviewDes: ${binding.cardviewDes}")
-        Log.d("ScanResultActivity", "tvDesc: ${binding.tvDesc}")
-
-        Log.d("ScanResultActivity", "linearLayoutPrev: ${binding.linearLayoutPrev}")
-        Log.d("ScanResultActivity", "cardviewDes: ${binding.cardviewDes}")
-        Log.d("ScanResultActivity", "tvPrev: ${binding.tvPrev}")
-
-        Log.d("ScanResultActivity", "linearLayoutTreat: ${binding.linearLayoutTreat}")
-        Log.d("ScanResultActivity", "cardviewDes: ${binding.cardviewDes}")
-        Log.d("ScanResultActivity", "tvTreat: ${binding.tvTreat}")
-
         binding.linearLayoutDesc.layoutTransition = LayoutTransition()
         binding.linearLayoutDesc.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         binding.cardviewDes.setOnClickListener{
@@ -51,5 +38,10 @@ class ScanResultActivity : AppCompatActivity() {
             binding.tvTreat.visibility = v
             binding.dividerTreat.visibility = v
         }
+    }
+
+    companion object {
+        const val EXTRA_PHOTO_RESULT = "PHOTO_RESULT"
+        const val EXTRA_CAMERA_MODE = "CAMERA_MODE"
     }
 }

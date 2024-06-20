@@ -45,4 +45,7 @@
     <string name="const_lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="UI_error_camera_error">Failed to launch camera</string>
+    <string name="UI_info_intent_image">Choose a picture</string>
+    <string name="UI_error_camera_take_photo">Failed take a picture</string>
 </resources>
