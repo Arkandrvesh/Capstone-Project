@@ -27,10 +27,8 @@ class SplashScreen : AppCompatActivity() {
         loginViewModel.getLoginSession().observe(this) { isLoggedIn ->
             val splashScreenTextLogo =
                 ObjectAnimator.ofFloat(binding.tvSplashScreen, View.ALPHA, 1f).setDuration(2000)
-            val splashScreenNamaBrand =
-                ObjectAnimator.ofFloat(binding.namaBrand, View.ALPHA, 1f).setDuration(1500)
             AnimatorSet().apply {
-                playTogether(splashScreenTextLogo, splashScreenNamaBrand)
+                playTogether(splashScreenTextLogo)
                 start()
             }
             val intent = if (isLoggedIn) {
@@ -41,6 +39,13 @@ class SplashScreen : AppCompatActivity() {
             binding.logoGambar.animate()
                 .setDuration(3000)
                 .alpha(0f)
+                .withEndAction {
+                    startActivity(intent)
+                    finish()
+                }
+            binding.logoNama.animate()
+                .setDuration(3000)
+                .alpha(1f)
                 .withEndAction {
                     startActivity(intent)
                     finish()

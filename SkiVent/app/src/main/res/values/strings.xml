@@ -36,16 +36,16 @@
 
     <string name="password">Password</string>
     <string name="password_visible">Show Password</string>
-    <string name="passwordLess">Kata Sandi minimal harus 8 karakter</string>
-    <string name="passwordNotMatch">Kata Sandi tidak sama</string>
-    <string name="passwordAccountWrong">Kata Sandi yang anda masukan salah</string>
+    <string name="passwordLess">Password minimal harus 8 karakter</string>
+    <string name="passwordNotMatch">Password tidak sama</string>
+    <string name="passwordAccountWrong">Password yang anda masukkan salah</string>
 
     <string name="nameNone">Nama tidak boleh kosong</string>
     <string name="emailNone">Email tidak boleh kosong</string>
-    <string name="passwordNone">Kata Sandi tidak boleh kosong</string>
-    <string name="passwordConfirmNone">Konfirmasi Kata Sandi tidak boleh kosong</string>
+    <string name="passwordNone">Password tidak boleh kosong</string>
+    <string name="passwordConfirmNone">Konfirmasi Password tidak boleh kosong</string>
 
-    <string name="skivent_splash">Ingin merawat kulit Anda? Anda Sudah tepat berada disini!</string>
+    <string name="skivent_splash">Ingin mengecek kulit Anda? Anda Sudah tepat berada disini!</string>
     <string name="brand" translatable="false">SkiVent</string>
     <string name="imageSplashDesc">Ini adalah logo di splashscreen</string>
 

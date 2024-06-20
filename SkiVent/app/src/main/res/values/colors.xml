@@ -14,5 +14,11 @@
     <color name="light_purple">#C7B8EA</color>
     <color name="pink">#FFC5C5</color>
     <color name="orange">#FFA07A</color>
+    <color name="mint_green">#06D6A0</color>
+    <color name="bright_yellow">#FFD166</color>
+    <color name="bright_pink">#EF476F</color>
+    <color name="light_blue_gray">#F0F4F8</color>
+    <color name="bright_blue">#4A90E2</color>
+    <color name="bright_orange">#FFA726</color>
 
 </resources>

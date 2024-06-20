@@ -18,30 +18,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/namaBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="0"
-        android:text="@string/brand"
-        android:textColor="@color/grey"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="93dp" />
+        app:layout_constraintVertical_bias="0.646" />
+
+    <ImageView
+        android:id="@+id/logoNama"
+        android:layout_width="310dp"
+        android:layout_height="225dp"
+        android:alpha="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoGambar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo_nama1" />
 
     <ImageView
         android:id="@+id/logoGambar"
         android:layout_width="313dp"
         android:layout_height="227dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="@string/imageSplashDesc"
-        app:layout_constraintEnd_toEndOf="@+id/tvSplashScreen"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/tvSplashScreen"
-        app:layout_constraintTop_toBottomOf="@+id/tvSplashScreen"
+        app:layout_constraintEnd_toEndOf="@+id/logoNama"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/logoNama"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gambar_utama1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
