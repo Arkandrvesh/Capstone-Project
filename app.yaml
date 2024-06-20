@@ -7,8 +7,8 @@ automatic_scaling:
   max_instances: 2
 
 env_variables:
-  DB_HOST: "34.101.164.68"
-  DB_USER: "root"
-  DB_PASSWORD: ""
-  DB_NAME: "capstones"
-  JWT_SECRET: "123SatuDuaTiga"
+  DB_HOST: "YOUR_CLOUD_SQL_HOST"
+  DB_USER: "YOUR_DB_USER"
+  DB_PASSWORD: "YOUR_DB_PASSWORD"
+  DB_NAME: "YOUR_DATABASE_NAME"
+  JWT_SECRET: "YOUR_SECRET_KEY"
