@@ -27,7 +27,8 @@ exports.register = async (req, res) => {
 
     const userId = generateUniqueId();
 
-    await db.execute("INSERT INTO login (id, email, username, password) VALUES (?, ?, ?, ?)", [userId, email, username, hashedPassword]);
+    // Tambahkan kolom birthdate, gender, dan phonenumber dengan nilai default kosong
+    await db.execute("INSERT INTO login (id, email, username, password, birthdate, gender, phonenumber) VALUES (?, ?, ?, ?, NULL, NULL, NULL)", [userId, email, username, hashedPassword]);
 
     res.status(201).send({ error: false, message: "User registered" });
   } catch (err) {

@@ -103,6 +103,20 @@ router.get("/user/:userId", authMiddleware.authMiddleware, async (req, res) => {
   }
 });
 
+// Endpoint untuk mengedit profil pengguna
+router.put("/user/:userId", authMiddleware.authMiddleware, async (req, res) => {
+  const userId = req.params.userId;
+  const { email, username, birthdate, gender, phonenumber } = req.body;
+
+  try {
+    await userService.editUserProfile(userId, email, username, birthdate, gender, phonenumber);
+    res.json({ success: true, message: "User profile updated successfully" });
+  } catch (error) {
+    console.error("Error updating user profile:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
 router.get("/history", authMiddleware.authMiddleware, async (req, res) => {
   try {
     // Panggil fungsi atau method yang akan mengambil riwayat deteksi penyakit kulit dari database berdasarkan ID pengguna
