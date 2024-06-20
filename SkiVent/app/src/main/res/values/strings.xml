@@ -16,6 +16,9 @@
     <string name="register">Belum punya akun?</string>
     <string name="register_button">Daftar</string>
 
+    <string name="createAccount">Register</string>
+    <string name="invalidLogin">Masukan data akun dengan benar!</string>
+
     <string name="tvRegister">Register</string>
     <string name="registerIcon">Icon untuk register</string>
     <string name="registerHeader">Register</string>
