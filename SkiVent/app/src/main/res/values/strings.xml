@@ -8,6 +8,40 @@
     <string name="toolbar_result">Result</string>
     <string name="toolbar_setting">Setting</string>
     <string name="button_text_ok">OK</string>
+
+    <string name="tvLogin">Login</string>
+    <string name="loginIcon">Icon untuk login</string>
+    <string name="login_button">Masuk</string>
+    <string name="login_description">Halo, Selamat datang di Skivent</string>
+    <string name="register">Belum punya akun?</string>
+    <string name="register_button">Daftar</string>
+
+    <string name="tvRegister">Register</string>
+    <string name="registerIcon">Icon untuk register</string>
+    <string name="registerHeader">Register</string>
+    <string name="registerCreate">Buat Akun</string>
+    <string name="register_description">Silakan masukkan informasi akun Anda!</string>
+    <string name="name">Masukkan Nama Anda</string>
+    <string name="email_register">Masukkan Email Anda</string>
+    <string name="password_register">Masukkan Password Anda</string>
+    <string name="passwordConfirm">Konfirmasi Password Anda</string>
+
+    <string name="email">Email</string>
+    <string name="emailFormatWrong">Format email tidak sesuai</string>
+    <string name="emailTaken">Email yang anda masukan sudah terdaftar, silahkan ganti email</string>
+    <string name="failedRegist">Registrasi gagal, silahkan coba lagi</string>
+
+    <string name="password">Password</string>
+    <string name="password_visible">Show Password</string>
+    <string name="passwordLess">Kata Sandi minimal harus 8 karakter</string>
+    <string name="passwordNotMatch">Kata Sandi tidak sama</string>
+    <string name="passwordAccountWrong">Kata Sandi yang anda masukan salah</string>
+
+    <string name="nameNone">Nama tidak boleh kosong</string>
+    <string name="emailNone">Email tidak boleh kosong</string>
+    <string name="passwordNone">Kata Sandi tidak boleh kosong</string>
+    <string name="passwordConfirmNone">Konfirmasi Kata Sandi tidak boleh kosong</string>
+
     <string name="const_lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -8,4 +8,6 @@
     <color name="safe">#63FF73</color>
     <color name="light_gray">#EAEAEA</color>
     <color name="yellow">#FFFFD363</color>
+    <color name="blue">#0000FF</color>
+    <color name="register_click">#4E31AA</color>
 </resources>
