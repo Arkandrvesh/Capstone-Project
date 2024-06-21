@@ -18,9 +18,22 @@
         android:theme="@style/Theme.SkiVent"
         tools:targetApi="31">
         <activity
+            android:name=".ui.dashboard.profile.ProfileInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.authentication.Login"
             android:exported="false" />
-        <activity android:name=".ui.authentication.Registration"
+        <activity
+            android:name=".ui.authentication.Registration"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.scan.ScanResultActivity"
@@ -28,18 +41,13 @@
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.dashboard.scan.CameraActivity"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
     </application>
 
 </manifest>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F0F4F8" /> <!-- Light Blue-Gray -->
+        </shape>
+    </item>
+
+    <!-- Curved shape at the top -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#4A90E2" /> <!-- Bright Blue -->
+            <corners android:bottomLeftRadius="300dp" android:bottomRightRadius="300dp" />
+        </shape>
+    </item>
+
+    <!-- Overlay circle -->
+    <item
+        android:width="280dp"
+        android:height="280dp"
+        android:gravity="top|center_horizontal"
+        android:top="-40dp">
+        <shape android:shape="oval">
+            <solid android:color="#FFA726" /> <!-- Bright Orange -->
+        </shape>
+    </item>
+
+    <!-- Small accent circle -->
+    <item
+        android:width="80dp"
+        android:height="80dp"
+        android:gravity="bottom|right"
+        android:right="40dp"
+        android:bottom="40dp">
+        <shape android:shape="oval">
+            <solid android:color="#4A90E2" /> <!-- Bright Blue -->
+        </shape>
+    </item>
+
+    <!-- Thin curved line -->
+    <item
+        android:width="200dp"
+        android:height="100dp"
+        android:gravity="bottom|left"
+        android:left="-30dp"
+        android:bottom="100dp">
+        <shape android:shape="oval">
+            <stroke android:width="4dp" android:color="#FFA726" /> <!-- Bright Orange -->
+        </shape>
+    </item>
+</layer-list>
