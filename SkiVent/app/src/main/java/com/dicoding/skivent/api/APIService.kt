@@ -2,6 +2,8 @@ package com.dicoding.skivent.api
 
 
 import com.dicoding.skivent.dataclass.DetectionResponse
+import com.dicoding.skivent.dataclass.HistoryItemItem
+import com.dicoding.skivent.dataclass.HistoryResponse
 import com.dicoding.skivent.dataclass.LoginDataAccount
 import com.dicoding.skivent.dataclass.LoginResponse
 import com.dicoding.skivent.dataclass.RegistResponse
@@ -27,4 +29,9 @@ interface APIService {
         @Header("Authorization") token: String,
         @Part image: MultipartBody.Part
     ): DetectionResponse
+
+    @GET("history")
+    fun getHistory(
+        @Header("Authorization") token: String
+    ): HistoryResponse
 }
