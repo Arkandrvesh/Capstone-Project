@@ -29,21 +29,21 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             preferences[TOKEN] = token
         }
     }
-    fun getName(): Flow<String> {
+    fun getUsername(): Flow<String> {
         return dataStore.data.map { preferences ->
-            preferences[NAME] ?: ""
+            preferences[USERNAME] ?: ""
         }
     }
-    suspend fun saveName(name: String) {
+    suspend fun saveUsername(name: String) {
         dataStore.edit { preferences ->
-            preferences[NAME] = name
+            preferences[USERNAME] = name
         }
     }
     suspend fun clearDataLogin() {
         dataStore.edit { preferences ->
             preferences.remove(LOGIN_SESSION)
             preferences.remove(TOKEN)
-            preferences.remove(NAME)
+            preferences.remove(USERNAME)
         }
     }
     companion object {
@@ -58,6 +58,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
         private val LOGIN_SESSION = booleanPreferencesKey("login_session")
         private val TOKEN = stringPreferencesKey("token")
-        private val NAME = stringPreferencesKey("name")
+        private val USERNAME = stringPreferencesKey("name")
     }
 }

@@ -29,13 +29,13 @@ class UserLoginViewModel(private val pref: UserPreference) : ViewModel() {
         }
     }
 
-    fun getName(): LiveData<String> {
-        return pref.getName().asLiveData()
+    fun getUsername(): LiveData<String> {
+        return pref.getUsername().asLiveData()
     }
 
-    fun saveName(token: String) {
+    fun saveUsername(token: String) {
         viewModelScope.launch {
-            pref.saveName(token)
+            pref.saveUsername(token)
         }
     }
 

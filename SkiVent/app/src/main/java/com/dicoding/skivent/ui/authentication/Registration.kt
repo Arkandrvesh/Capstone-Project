@@ -68,7 +68,7 @@ class Registration : AppCompatActivity() {
             val user = mainViewModel.userLogin.value
             userLoginViewModel.saveLoginSession(true)
             userLoginViewModel.saveToken(user?.loginResult!!.token)
-            userLoginViewModel.saveName(user.loginResult.name)
+            userLoginViewModel.saveUsername(user.loginResult.username)
         } else {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }

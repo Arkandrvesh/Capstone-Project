@@ -64,7 +64,7 @@ class Login : AppCompatActivity() {
             val user = mainViewModel.userLogin.value
             userLoginViewModel.saveLoginSession(true)
             userLoginViewModel.saveToken(user?.loginResult!!.token)
-            userLoginViewModel.saveName(user.loginResult.name)
+            userLoginViewModel.saveUsername(user.loginResult.username)
         } else {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
@@ -77,7 +77,7 @@ class Login : AppCompatActivity() {
         }.start()
         val tvLoginDesc =
             ObjectAnimator.ofFloat(binding.tvLoginDescription, View.ALPHA, 1f).setDuration(300)
-        val tvLogin = ObjectAnimator.ofFloat(binding.tvLogin, View.ALPHA, 1f).setDuration(300)
+//        val tvLogin = ObjectAnimator.ofFloat(binding.tvLogin, View.ALPHA, 1f).setDuration(300)
         val evEmail = ObjectAnimator.ofFloat(binding.CVEmail, View.ALPHA, 1f).setDuration(300)
         val evPassword =
             ObjectAnimator.ofFloat(binding.PasswordLogin, View.ALPHA, 1f).setDuration(300)
@@ -87,17 +87,17 @@ class Login : AppCompatActivity() {
         val btnRegister =
             ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(300)
         val tvRegistDesc =
-            ObjectAnimator.ofFloat(binding.tvRegistDescription, View.ALPHA, 1f).setDuration(300)
+//            ObjectAnimator.ofFloat(binding.tvRegistDescription, View.ALPHA, 1f).setDuration(300)
         AnimatorSet().apply {
             playSequentially(
                 tvLoginDesc,
-                tvLogin,
+//                tvLogin,
                 evEmail,
                 evPassword,
                 seePassword,
                 btnLogin,
                 btnRegister,
-                tvRegistDesc
+//                tvRegistDesc
             )
             start()
         }

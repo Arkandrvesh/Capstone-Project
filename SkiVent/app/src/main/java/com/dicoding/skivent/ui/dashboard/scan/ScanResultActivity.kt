@@ -1,6 +1,7 @@
 package com.dicoding.skivent.ui.dashboard.scan
 
 import android.animation.LayoutTransition
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,16 +12,21 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.skivent.R
+import com.dicoding.skivent.UserPreference
 import com.dicoding.skivent.api.APIConfig
 import com.dicoding.skivent.api.APIService
 import com.dicoding.skivent.databinding.ActivityScanResultBinding
 import com.dicoding.skivent.ui.authentication.FactoryViewModel
 import com.dicoding.skivent.ui.authentication.UserLoginViewModel
+import com.dicoding.skivent.ui.authentication.dataStore
+import com.dicoding.skivent.ui.dashboard.MainActivity
 import com.dicoding.skivent.ui.dashboard.MainViewModel
 import java.io.IOException
 
 class ScanResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanResultBinding
+    private lateinit var token: String
+
     private val viewModel: ScanResultViewModel by lazy {
         val apiService = APIConfig.getApiService() // Pastikan ini sesuai dengan cara Anda mendapatkan APIService
         val factory = ViewModelFactory(apiService)
@@ -32,17 +38,25 @@ class ScanResultActivity : AppCompatActivity() {
         binding = ActivityScanResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setNavigationOnClickListener {
-            onBackPressed()
+        /* get Token from preference */
+        val preferences = UserPreference.getInstance(dataStore)
+        val userLoginViewModel =
+            ViewModelProvider(this, FactoryViewModel(preferences))[UserLoginViewModel::class.java]
+        userLoginViewModel.getToken().observe(this) {
+            token = it
+
+            val imageUriString = intent.getStringExtra(EXTRA_PHOTO_RESULT)
+            if (imageUriString != null) {
+                val imageUri = Uri.parse(imageUriString)
+                displayImage(imageUri)
+                viewModel.predicSkin(imageUri, this, token)
+            } else {
+                Log.e("ScanResultActivity", "No image URI received")
+            }
         }
 
-        val imageUriString = intent.getStringExtra(EXTRA_PHOTO_RESULT)
-        if (imageUriString != null) {
-            val imageUri = Uri.parse(imageUriString)
-            displayImage(imageUri)
-            viewModel.predicSkin(imageUri, this, TOKEN)
-        } else {
-            Log.e("ScanResultActivity", "No image URI received")
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
         }
 
         binding.linearLayoutDesc.layoutTransition = LayoutTransition()
@@ -102,6 +116,5 @@ class ScanResultActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_PHOTO_RESULT = "PHOTO_RESULT"
         const val EXTRA_CAMERA_MODE = "CAMERA_MODE"
-        const val TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXItOFNnbk8ybjFyMFk9IiwiaWF0IjoxNzE4OTI1MTc3LCJleHAiOjE3MTg5Mjg3Nzd9.nN3_MEAnB2a7noQhzOAuT6KMM_QH5bus1S2CC_Owy7I"
     }
 }

@@ -16,9 +16,9 @@ data class ResponseDetail(
 data class ResponseLogin(
     var error: Boolean,
     var message: String,
-    var loginResult: LoginResult
+    var loginResults: LoginResults
 )
-data class LoginResult(
+data class LoginResults(
     var userId: String,
     var name: String,
     var token: String

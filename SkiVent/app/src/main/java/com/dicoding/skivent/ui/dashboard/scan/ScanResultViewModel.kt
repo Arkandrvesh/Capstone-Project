@@ -77,12 +77,5 @@ class ScanResultViewModel(private val apiService: APIService) : ViewModel(){
         }
         outputStream.toByteArray()
     }
-    private fun getRealPathFromURI(uri: Uri, context: Context): String {
-        val cursor = context.contentResolver.query(uri, null, null, null, null)
-        cursor?.moveToFirst()
-        val idx = cursor?.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-        val result = cursor?.getString(idx ?: 0)
-        cursor?.close()
-        return result ?: ""
-    }
+
 }

@@ -11,23 +11,23 @@
 
     <string name="tvLogin">Login</string>
     <string name="loginIcon">Icon untuk login</string>
-    <string name="login_button">Masuk</string>
-    <string name="login_description">Halo, Selamat datang di Skivent</string>
-    <string name="register">Belum punya akun?</string>
-    <string name="register_button">Daftar</string>
-
+    <string name="login_button">Login</string>
+    <string name="login_description">LOGIN</string>
+    <string name="register">Doesn\'t have an account?</string>
+    <string name="register_button">Doesn\'t have an account?</string>
+    <string name="sc_login">Already have an account?</string>
     <string name="createAccount">Register</string>
     <string name="invalidLogin">Masukan data akun dengan benar!</string>
 
     <string name="tvRegister">Register</string>
     <string name="registerIcon">Icon untuk register</string>
-    <string name="registerHeader">Register</string>
-    <string name="registerCreate">Buat Akun</string>
+    <string name="registerHeader">Create an account</string>
+    <string name="registerCreate">Create Account</string>
     <string name="register_description">Silakan masukkan informasi akun Anda!</string>
-    <string name="name">Masukkan Nama Anda</string>
-    <string name="email_register">Masukkan Email Anda</string>
-    <string name="password_register">Masukkan Password Anda</string>
-    <string name="passwordConfirm">Konfirmasi Password Anda</string>
+    <string name="name">Fullname</string>
+    <string name="email_register">Email Address</string>
+    <string name="password_register">Password</string>
+    <string name="passwordConfirm">Confirm Password</string>
 
     <string name="email">Email</string>
     <string name="emailFormatWrong">Format email tidak sesuai</string>
