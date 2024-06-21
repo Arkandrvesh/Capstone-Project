@@ -64,34 +64,22 @@
         android:id="@+id/ic_acc"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_acc_ph"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_acc"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/ic_accuracy" />
 
     <TextView
-        android:id="@+id/tv_acc_ph"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="Health level:"
-        android:textColor="#FFFEB052"
-        app:layout_constraintEnd_toStartOf="@+id/tv_acc"
-        app:layout_constraintStart_toEndOf="@+id/ic_acc"
-        app:layout_constraintTop_toTopOf="@+id/ic_acc" />
-
-    <TextView
         android:id="@+id/tv_acc"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="170dp"
-        android:text="99%"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:text="Health Level: 99%"
         android:textColor="#FFFEB052"
         app:layout_constraintBottom_toBottomOf="@+id/ic_acc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_acc_ph"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/ic_acc"
         app:layout_constraintTop_toTopOf="@+id/ic_acc" />
 
     <LinearLayout
